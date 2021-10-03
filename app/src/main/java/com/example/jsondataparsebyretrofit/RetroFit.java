@@ -7,6 +7,9 @@ public class RetroFit {
 
     private  static final  String BASE_URL="https://api.openweathermap.org/";
     private static Retrofit retroFit;
+
+
+
     private static Retrofit getRetroFitInstance()
     {
 
