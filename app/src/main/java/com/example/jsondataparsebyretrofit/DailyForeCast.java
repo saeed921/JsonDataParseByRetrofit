@@ -5,130 +5,95 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class DailyForeCast {
 
 
-}class Forecast {
 
-    @SerializedName("coord")
+  public class DailyForeCast {
+
+    @SerializedName("cod")
     @Expose
-    private Coord coord;
-    @SerializedName("weather")
+    private String cod;
+    @SerializedName("message")
     @Expose
-    private List<Weather> weather = null;
-    @SerializedName("base")
+    private Integer message;
+    @SerializedName("cnt")
     @Expose
-    private String base;
-    @SerializedName("main")
+    private Integer cnt;
+    @SerializedName("list")
     @Expose
-    private Main main;
-    @SerializedName("visibility")
+    private java.util.List<Day> list = null;
+    @SerializedName("city")
     @Expose
-    private Integer visibility;
-    @SerializedName("wind")
-    @Expose
-    private Wind wind;
-    @SerializedName("clouds")
-    @Expose
-    private Clouds clouds;
-    @SerializedName("dt")
-    @Expose
-    private Integer dt;
-    @SerializedName("sys")
-    @Expose
-    private Sys sys;
-    @SerializedName("timezone")
-    @Expose
-    private Integer timezone;
+    private City city;
+
+    public String getCod() {
+        return cod;
+    }
+
+    public void setCod(String cod) {
+        this.cod = cod;
+    }
+
+    public Integer getMessage() {
+        return message;
+    }
+
+    public void setMessage(Integer message) {
+        this.message = message;
+    }
+
+    public Integer getCnt() {
+        return cnt;
+    }
+
+    public void setCnt(Integer cnt) {
+        this.cnt = cnt;
+    }
+
+    public java.util.List<Day> getList() {
+        return list;
+    }
+
+    public void setList(java.util.List<Day> list) {
+        this.list = list;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
+
+}
+
+ class City {
+
     @SerializedName("id")
     @Expose
     private Integer id;
     @SerializedName("name")
     @Expose
     private String name;
-    @SerializedName("cod")
+    @SerializedName("coord")
     @Expose
-    private Integer cod;
-
-    public Coord getCoord() {
-        return coord;
-    }
-
-    public void setCoord(Coord coord) {
-        this.coord = coord;
-    }
-
-    public List<Weather> getWeather() {
-        return weather;
-    }
-
-    public void setWeather(List<Weather> weather) {
-        this.weather = weather;
-    }
-
-    public String getBase() {
-        return base;
-    }
-
-    public void setBase(String base) {
-        this.base = base;
-    }
-
-    public Main getMain() {
-        return main;
-    }
-
-    public void setMain(Main main) {
-        this.main = main;
-    }
-
-    public Integer getVisibility() {
-        return visibility;
-    }
-
-    public void setVisibility(Integer visibility) {
-        this.visibility = visibility;
-    }
-
-    public Wind getWind() {
-        return wind;
-    }
-
-    public void setWind(Wind wind) {
-        this.wind = wind;
-    }
-
-    public Clouds getClouds() {
-        return clouds;
-    }
-
-    public void setClouds(Clouds clouds) {
-        this.clouds = clouds;
-    }
-
-    public Integer getDt() {
-        return dt;
-    }
-
-    public void setDt(Integer dt) {
-        this.dt = dt;
-    }
-
-    public Sys getSys() {
-        return sys;
-    }
-
-    public void setSys(Sys sys) {
-        this.sys = sys;
-    }
-
-    public Integer getTimezone() {
-        return timezone;
-    }
-
-    public void setTimezone(Integer timezone) {
-        this.timezone = timezone;
-    }
+    private Coord coord;
+    @SerializedName("country")
+    @Expose
+    private String country;
+    @SerializedName("population")
+    @Expose
+    private Integer population;
+    @SerializedName("timezone")
+    @Expose
+    private Integer timezone;
+    @SerializedName("sunrise")
+    @Expose
+    private Integer sunrise;
+    @SerializedName("sunset")
+    @Expose
+    private Integer sunset;
 
     public Integer getId() {
         return id;
@@ -146,18 +111,56 @@ public class DailyForeCast {
         this.name = name;
     }
 
-    public Integer getCod() {
-        return cod;
+    public Coord getCoord() {
+        return coord;
     }
 
-    public void setCod(Integer cod) {
-        this.cod = cod;
+    public void setCoord(Coord coord) {
+        this.coord = coord;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public Integer getPopulation() {
+        return population;
+    }
+
+    public void setPopulation(Integer population) {
+        this.population = population;
+    }
+
+    public Integer getTimezone() {
+        return timezone;
+    }
+
+    public void setTimezone(Integer timezone) {
+        this.timezone = timezone;
+    }
+
+    public Integer getSunrise() {
+        return sunrise;
+    }
+
+    public void setSunrise(Integer sunrise) {
+        this.sunrise = sunrise;
+    }
+
+    public Integer getSunset() {
+        return sunset;
+    }
+
+    public void setSunset(Integer sunset) {
+        this.sunset = sunset;
     }
 
 }
-
-
-class Clouds {
+ class Clouds {
 
     @SerializedName("all")
     @Expose
@@ -172,22 +175,14 @@ class Clouds {
     }
 
 }
-class Coord {
+ class Coord {
 
-    @SerializedName("lon")
-    @Expose
-    private Double lon;
     @SerializedName("lat")
     @Expose
     private Double lat;
-
-    public Double getLon() {
-        return lon;
-    }
-
-    public void setLon(Double lon) {
-        this.lon = lon;
-    }
+    @SerializedName("lon")
+    @Expose
+    private Double lon;
 
     public Double getLat() {
         return lat;
@@ -197,8 +192,131 @@ class Coord {
         this.lat = lat;
     }
 
+    public Double getLon() {
+        return lon;
+    }
+
+    public void setLon(Double lon) {
+        this.lon = lon;
+    }
+
 }
 
+
+ class Day {
+
+    @SerializedName("dt")
+    @Expose
+    private Integer dt;
+    @SerializedName("main")
+    @Expose
+    private Main main;
+    @SerializedName("weather")
+    @Expose
+    private java.util.List<Weather> weather = null;
+    @SerializedName("clouds")
+    @Expose
+    private Clouds clouds;
+    @SerializedName("wind")
+    @Expose
+    private Wind wind;
+    @SerializedName("visibility")
+    @Expose
+    private Integer visibility;
+    @SerializedName("pop")
+    @Expose
+    private Double pop;
+    @SerializedName("rain")
+    @Expose
+    private Rain rain;
+    @SerializedName("sys")
+    @Expose
+    private Sys sys;
+    @SerializedName("dt_txt")
+    @Expose
+    private String dtTxt;
+
+    public Integer getDt() {
+        return dt;
+    }
+
+    public void setDt(Integer dt) {
+        this.dt = dt;
+    }
+
+    public Main getMain() {
+        return main;
+    }
+
+    public void setMain(Main main) {
+        this.main = main;
+    }
+
+    public java.util.List<Weather> getWeather() {
+        return weather;
+    }
+
+    public void setWeather(java.util.List<Weather> weather) {
+        this.weather = weather;
+    }
+
+    public Clouds getClouds() {
+        return clouds;
+    }
+
+    public void setClouds(Clouds clouds) {
+        this.clouds = clouds;
+    }
+
+    public Wind getWind() {
+        return wind;
+    }
+
+    public void setWind(Wind wind) {
+        this.wind = wind;
+    }
+
+    public Integer getVisibility() {
+        return visibility;
+    }
+
+    public void setVisibility(Integer visibility) {
+        this.visibility = visibility;
+    }
+
+    public Double getPop() {
+        return pop;
+    }
+
+    public void setPop(Double pop) {
+        this.pop = pop;
+    }
+
+    public Rain getRain() {
+        return rain;
+    }
+
+    public void setRain(Rain rain) {
+        this.rain = rain;
+    }
+
+    public Sys getSys() {
+        return sys;
+    }
+
+    public void setSys(Sys sys) {
+        this.sys = sys;
+    }
+
+    public String getDtTxt() {
+        return dtTxt;
+    }
+
+    public void setDtTxt(String dtTxt) {
+        this.dtTxt = dtTxt;
+    }
+
+}
  class Main {
 
     @SerializedName("temp")
@@ -216,9 +334,18 @@ class Coord {
     @SerializedName("pressure")
     @Expose
     private Integer pressure;
+    @SerializedName("sea_level")
+    @Expose
+    private Integer seaLevel;
+    @SerializedName("grnd_level")
+    @Expose
+    private Integer grndLevel;
     @SerializedName("humidity")
     @Expose
     private Integer humidity;
+    @SerializedName("temp_kf")
+    @Expose
+    private Integer tempKf;
 
     public Double getTemp() {
         return temp;
@@ -260,6 +387,22 @@ class Coord {
         this.pressure = pressure;
     }
 
+    public Integer getSeaLevel() {
+        return seaLevel;
+    }
+
+    public void setSeaLevel(Integer seaLevel) {
+        this.seaLevel = seaLevel;
+    }
+
+    public Integer getGrndLevel() {
+        return grndLevel;
+    }
+
+    public void setGrndLevel(Integer grndLevel) {
+        this.grndLevel = grndLevel;
+    }
+
     public Integer getHumidity() {
         return humidity;
     }
@@ -268,63 +411,42 @@ class Coord {
         this.humidity = humidity;
     }
 
+    public Integer getTempKf() {
+        return tempKf;
+    }
+
+    public void setTempKf(Integer tempKf) {
+        this.tempKf = tempKf;
+    }
+
+}
+ class Rain {
+
+    @SerializedName("3h")
+    @Expose
+    private Double _3h;
+
+    public Double get3h() {
+        return _3h;
+    }
+
+    public void set3h(Double _3h) {
+        this._3h = _3h;
+    }
+
 }
  class Sys {
 
-    @SerializedName("type")
+    @SerializedName("pod")
     @Expose
-    private Integer type;
-    @SerializedName("id")
-    @Expose
-    private Integer id;
-    @SerializedName("country")
-    @Expose
-    private String country;
-    @SerializedName("sunrise")
-    @Expose
-    private Integer sunrise;
-    @SerializedName("sunset")
-    @Expose
-    private Integer sunset;
+    private String pod;
 
-    public Integer getType() {
-        return type;
+    public String getPod() {
+        return pod;
     }
 
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public Integer getSunrise() {
-        return sunrise;
-    }
-
-    public void setSunrise(Integer sunrise) {
-        this.sunrise = sunrise;
-    }
-
-    public Integer getSunset() {
-        return sunset;
-    }
-
-    public void setSunset(Integer sunset) {
-        this.sunset = sunset;
+    public void setPod(String pod) {
+        this.pod = pod;
     }
 
 }
@@ -384,6 +506,9 @@ class Coord {
     @SerializedName("deg")
     @Expose
     private Integer deg;
+    @SerializedName("gust")
+    @Expose
+    private Double gust;
 
     public Double getSpeed() {
         return speed;
@@ -401,4 +526,14 @@ class Coord {
         this.deg = deg;
     }
 
+    public Double getGust() {
+        return gust;
+    }
+
+    public void setGust(Double gust) {
+        this.gust = gust;
+    }
+
 }
+
+
